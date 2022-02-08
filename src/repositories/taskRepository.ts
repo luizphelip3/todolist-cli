@@ -15,11 +15,23 @@ class TaskRepository {
     newTask.isDeleted = false;
     
     // Criando um bloco trycatch para executar a funcao de criacao de tarefas
-    
     try {
-      const result: ITask = await getRepository(Task).save(newTask);
+    
+    const result: ITask = await getRepository(Task).save(newTask);
       return { message: 'A tarefa foi criada!', task: result.descricao};
     } catch (error) {
       return { message: 'Houve um erro durante a criacao da tarefa!', error: error.message, code: error.code };
     }
-  }}
+  }
+
+  public async findAllTasks() {
+    try{
+        const tasksList = await getRepository(Task).find({ isDeleted:false });
+        return tasksList;
+    }   catch(error){
+        console.log({ message: "A busca falhou", error: error.message, code: error.code });
+    }
+
+  }
+
+}
