@@ -1,0 +1,9 @@
+{
+    "type": "mongodb",
+    "url": "mongodb+srv://root:root_password@todolist-cli.ny8kx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "useUnifiedTopology": true,
+    "synchronize": true,
+    "entities": [
+      "src/db/entities/*.ts"
+    ]
+  }
