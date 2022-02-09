@@ -5,7 +5,7 @@ export interface ITask {
     id?: ObjectID | string;
     descricao: string;
     prioridade: string;
-    status: string;
+    status?: string;
     criadoEm?: Date | string;
     isDeleted?: boolean;
 
