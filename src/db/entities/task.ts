@@ -7,13 +7,13 @@ export class Task {
     id?: ObjectID;
 
     @Column()
-    descricao!: string;
+    description!: string;
 
     @Column()
-    prioridade!: string;
+    priority!: string;
 
     @CreateDateColumn()
-    criadoEm?: Date;
+    createdAt?: Date;
 
     @Column({ default: `pendente` })
     status?: string;

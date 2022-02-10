@@ -1,10 +1,6 @@
 import 'reflect-metadata';
 import TaskService from './services/taskServices';
-<<<<<<< HEAD
 import { Command } from 'commander'
-=======
-import { Command } from 'commander';
->>>>>>> 43aede0ed32f0f65cb87ed1fdb2cc9a3e833686a
 import { connection } from './db/connect';
 
 // Importa o validador de prioridade da classe fieldValidator
@@ -19,7 +15,6 @@ const command = new Command()
 const program = command.version('0.0.1')
 
 // Menu de opções do programa
-<<<<<<< HEAD
 program
 .option('-a, --all', 'mostra todas as tarefas')
 .option('-p, --priority <priority>', 'define a prioridade da tarefa').parse(argv);
@@ -27,44 +22,19 @@ program
 const options = program.opts();
 
 // Primeiro comando para adicionar
-program.command('add <description>').description('Crie uma nova tarefa')
-.command('-p, --priority <priority>', 'define a prioridade da tarefa').action(async (descricao: string) => {
+program.command('add <description>').description('Crie uma nova tarefa').action(async (description: string) => {
   // Verifica a função de prioridade
   if (options.priority) {
-    const prioridade = options.priority;
-    const isValid = validate(prioridade);
-    console.log(prioridade);
-=======
-program.option('-a, --all', 'show all tasks').option('-p, --priority <priority>', 'set task proprity').parse(argv);
-
-const options = program.opts();
-
-// Console log de teste
-program.command('log <arg>').description('loga algo').action(() => {
-  console.log('algo');
-});
-
-// Primeiro comando para adicionar
-program.command('add <description>').description('Crie uma nova tarefa').action(async (descricao: string) => {
-    // Verifica a função de prioridade
-  if (options.prioridade) {
-    const prioridade = options.prioridade;
-    const isValid = validate(prioridade);
->>>>>>> 43aede0ed32f0f65cb87ed1fdb2cc9a3e833686a
+    const priority = options.priority;
+    const isValid = validate(priority);
 
     // Verifica o nível de prioridade e se o usuário inseriu o valor de prioridade
     if (isValid) {
-      const newTask = await TaskService.createTask({descricao, prioridade})
-<<<<<<< HEAD
+      const newTask = await TaskService.createTask({description, priority})
       console.log(isValid);
       console.log(newTask);
     } else {
       console.log('A propriedade deve ser baixa ou media ou alta!')
-=======
-      console.log(newTask);
-    } else {
-      console.log('A propriedae deve ser baixa ou media ou alta!')
->>>>>>> 43aede0ed32f0f65cb87ed1fdb2cc9a3e833686a
     }
   } else {
     console.log('Está faltando o valor de prioridade da tarefa, use a opção -p para passar a prioridade');

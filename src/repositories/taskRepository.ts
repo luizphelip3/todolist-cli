@@ -9,15 +9,15 @@ class TaskRepository {
     
     // Construcao de uma nova tarefa com os dados requeridos
     const newTask = new Task();
-    newTask.descricao = task.descricao;
+    newTask.description = task.description;
     newTask.status = "pendente";
-    newTask.prioridade = task.prioridade;
+    newTask.priority = task.priority;
     newTask.isDeleted = false;
     
     // Criando um bloco trycatch para executar a funcao de criacao de tarefas
     try {
     const result: ITask = await getRepository(Task).save(newTask);
-      return { message: 'A tarefa foi criada!', task: result.descricao};
+      return { message: 'A tarefa foi criada!', task: result.description};
     } catch (error) {
       return { message: 'Houve um erro durante a criacao da tarefa!', error: error.message, code: error.code };
     }

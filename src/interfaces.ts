@@ -4,10 +4,10 @@ import { ObjectID } from "typeorm";
 export interface ITask {
 
     id?: ObjectID | string;
-    descricao: string;
-    prioridade: string;
+    description: string;
+    priority: string;
     status?: string;
-    criadoEm?: Date | string;
+    createdAt?: Date | string;
     isDeleted?: boolean;
 
 }
